@@ -2,7 +2,7 @@ data "aws_iam_role" "app" {
   name = var.app_role_name
 }
 
-resource "aws_iam_role_policy" "dynamodb" {
+resource "aws_iam_role_policy" "add_on" {
   name = "CustomDynamoDBPolicy"
   role = data.aws_iam_role.app.name
 

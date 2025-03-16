@@ -19,7 +19,7 @@ No modules.
 | Name | Type |
 |------|------|
 | [aws_dynamodb_table.add_on](https://registry.terraform.io/providers/hashicorp/aws/5.91.0/docs/resources/dynamodb_table) | resource |
-| [aws_iam_role_policy.dynamodb](https://registry.terraform.io/providers/hashicorp/aws/5.91.0/docs/resources/iam_role_policy) | resource |
+| [aws_iam_role_policy.add_on](https://registry.terraform.io/providers/hashicorp/aws/5.91.0/docs/resources/iam_role_policy) | resource |
 | [aws_iam_role.app](https://registry.terraform.io/providers/hashicorp/aws/5.91.0/docs/data-sources/iam_role) | data source |
 
 ## Inputs
@@ -35,4 +35,6 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_dynamodb_table_arn"></a> [dynamodb\_table\_arn](#output\_dynamodb\_table\_arn) | DynamoDB table ARN |

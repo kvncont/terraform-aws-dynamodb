@@ -7,4 +7,8 @@ resource "aws_dynamodb_table" "add_on" {
     name = var.table_hash_key
     type = "S"
   }
+
+  lifecycle {
+    prevent_destroy = true
+  }
 }

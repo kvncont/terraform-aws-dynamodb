@@ -1,11 +1,16 @@
-variable "region" {
-  type        = string
-  description = "AWS Region"
-}
+variable "tags" {
+  description = "Required environment, managed_by, and owner tags applied explicitly to all module resources that support tagging"
+  type = object({
+    environment = string
+    managed_by  = string
+    owner       = string
+  })
+  nullable = false
 
-variable "assume_role_arn" {
-  type        = string
-  description = "ARN Role that Terraform assume"
+  validation {
+    condition     = alltrue([for value in values(var.tags) : value == null ? false : length(trimspace(value)) > 0])
+    error_message = "environment, managed_by, and owner must all have nonempty tag values."
+  }
 }
 
 variable "kms_key_arn" {

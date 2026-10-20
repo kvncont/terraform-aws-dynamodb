@@ -19,11 +19,6 @@ variable "kms_key_arn" {
   default     = null
 }
 
-variable "app_role_name" {
-  type        = string
-  description = "Role name to attache the new DynamoDB policy"
-}
-
 variable "table_name" {
   type        = string
   description = "DynamoDB table name"

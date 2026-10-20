@@ -20,6 +20,8 @@ No modules.
 | Name | Type |
 | ---- | ---- |
 | [aws_dynamodb_table.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dynamodb_table) | resource |
+| [aws_iam_policy.read](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
+| [aws_iam_policy.write](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
 | [aws_iam_policy_document.read](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
 | [aws_iam_policy_document.write](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
 
@@ -36,7 +38,7 @@ No modules.
 
 | Name | Description |
 | ---- | ----------- |
+| <a name="output_access_policies"></a> [access\_policies](#output\_access\_policies) | Access policy ARNs for the DynamoDB table |
 | <a name="output_arn"></a> [arn](#output\_arn) | DynamoDB table ARN |
 | <a name="output_name"></a> [name](#output\_name) | DynamoDB table name |
-| <a name="output_read_policy_json"></a> [read\_policy\_json](#output\_read\_policy\_json) | Política IAM de solo lectura (tabla + índices) |
-| <a name="output_write_policy_json"></a> [write\_policy\_json](#output\_write\_policy\_json) | Política IAM de lectura y escritura |
+| <a name="output_stream_arn"></a> [stream\_arn](#output\_stream\_arn) | DynamoDB table stream ARN |

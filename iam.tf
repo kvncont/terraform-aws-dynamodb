@@ -26,6 +26,12 @@ data "aws_iam_policy_document" "read" {
   }
 }
 
+resource "aws_iam_policy" "read" {
+  name   = "pol-ddb-${var.table_name}-read"
+  path   = "/platform/approved/"
+  policy = data.aws_iam_policy_document.read.json
+}
+
 data "aws_iam_policy_document" "write" {
   source_policy_documents = [data.aws_iam_policy_document.read.json]
 
@@ -50,4 +56,10 @@ data "aws_iam_policy_document" "write" {
       resources = [var.kms_key_arn]
     }
   }
+}
+
+resource "aws_iam_policy" "write" {
+  name   = "pol-ddb-${var.table_name}-write"
+  path   = "/platform/approved/"
+  policy = data.aws_iam_policy_document.write.json
 }

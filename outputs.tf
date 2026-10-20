@@ -8,12 +8,15 @@ output "name" {
   value       = aws_dynamodb_table.this.name
 }
 
-output "read_policy_json" {
-  description = "Política IAM de solo lectura (tabla + índices)"
-  value       = data.aws_iam_policy_document.read.json
+output "stream_arn" {
+  description = "DynamoDB table stream ARN"
+  value       = aws_dynamodb_table.this.stream_arn
 }
 
-output "write_policy_json" {
-  description = "Política IAM de lectura y escritura"
-  value       = data.aws_iam_policy_document.write.json
+output "access_policies" {
+  description = "Access policy ARNs for the DynamoDB table"
+  value = {
+    read  = aws_iam_policy.read.arn
+    write = aws_iam_policy.write.arn
+  }
 }

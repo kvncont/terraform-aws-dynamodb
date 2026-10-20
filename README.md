@@ -2,6 +2,7 @@
 
 | Name | Version |
 | ---- | ------- |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 6.18 |
 
 ## Providers
@@ -26,7 +27,6 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 | ---- | ----------- | ---- | ------- | :------: |
-| <a name="input_app_role_name"></a> [app\_role\_name](#input\_app\_role\_name) | Role name to attache the new DynamoDB policy | `string` | n/a | yes |
 | <a name="input_kms_key_arn"></a> [kms\_key\_arn](#input\_kms\_key\_arn) | ARN of the KMS key used for encrypting the DynamoDB table | `string` | `null` | no |
 | <a name="input_table_hash_key"></a> [table\_hash\_key](#input\_table\_hash\_key) | Hash key for the table | `string` | n/a | yes |
 | <a name="input_table_name"></a> [table\_name](#input\_table\_name) | DynamoDB table name | `string` | n/a | yes |

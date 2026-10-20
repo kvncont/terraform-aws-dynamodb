@@ -27,9 +27,10 @@ data "aws_iam_policy_document" "read" {
 }
 
 resource "aws_iam_policy" "read" {
-  name   = "pol-ddb-${var.table_name}-read"
+  name   = "pol-ddb-${substr(var.table_name, 0, 50)}-${sha256(aws_dynamodb_table.this.arn)}-read"
   path   = "/platform/approved/"
   policy = data.aws_iam_policy_document.read.json
+  tags   = var.tags
 }
 
 data "aws_iam_policy_document" "write" {
@@ -59,7 +60,8 @@ data "aws_iam_policy_document" "write" {
 }
 
 resource "aws_iam_policy" "write" {
-  name   = "pol-ddb-${var.table_name}-write"
+  name   = "pol-ddb-${substr(var.table_name, 0, 50)}-${sha256(aws_dynamodb_table.this.arn)}-write"
   path   = "/platform/approved/"
   policy = data.aws_iam_policy_document.write.json
+  tags   = var.tags
 }

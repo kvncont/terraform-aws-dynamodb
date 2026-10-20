@@ -1,25 +1,22 @@
-variable "region" {
-  type        = string
-  description = "AWS Region"
-}
+variable "tags" {
+  description = "Required environment, managed_by, and owner tags applied explicitly to all module resources that support tagging"
+  type = object({
+    environment = string
+    managed_by  = string
+    owner       = string
+  })
+  nullable = false
 
-variable "assume_role_arn" {
-  type        = string
-  description = "ARN Role that Terraform assume"
-}
-
-variable "waypoint_application" {
-  type        = string
-  description = "Name of the application"
   validation {
-    condition     = can(regex("^[a-z][a-z0-9-]*-(poc|dev|test|qa|stg|pre|pro)$", var.waypoint_application))
-    error_message = "The waypoint_application variable must start with a lowercase letter, can only contain lowercase letters, numbers, and hyphens (-), and must end with one of the following suffixes: poc, dev, test, qa, stg, pre, pro."
+    condition     = alltrue([for value in values(var.tags) : value == null ? false : length(trimspace(value)) > 0])
+    error_message = "environment, managed_by, and owner must all have nonempty tag values."
   }
 }
 
-variable "app_role_name" {
+variable "kms_key_arn" {
   type        = string
-  description = "Role name to attache the new DynamoDB policy"
+  description = "ARN of the KMS key used for encrypting the DynamoDB table"
+  default     = null
 }
 
 variable "table_name" {
